@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="978.0" prefWidth="1562.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.medicallab.DoctorController">
+   <content>
+      <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="936.0">
+         <children>
+            <Label alignment="CENTER" layoutX="268.0" layoutY="14.0" prefHeight="46.0" prefWidth="189.0" text="Doctor">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableView" layoutX="52.0" layoutY="217.0" prefHeight="351.0" prefWidth="857.0">
+               <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="86.4000244140625" text="Doctor ID" />
+                  <TableColumn fx:id="nameColumn" prefWidth="151.199951171875" text="Doctor Name" />
+                  <TableColumn fx:id="emailColumn" prefWidth="167.0" text="Email" />
+                  <TableColumn fx:id="specialtyColumn" prefWidth="136.0" text="Speciality" />
+                  <TableColumn fx:id="discountColumn" prefWidth="95.0" text="Discount" />
+                  <TableColumn fx:id="moreInfoColumn" prefWidth="101.0" sortable="false" text="Show More" />
+                  <TableColumn fx:id="manipulateColumn" prefWidth="116.0" sortable="false" text="Edit/Remove" />
+               </columns>
+            </TableView>
+            <TextField fx:id="searchBox" layoutX="52.0" layoutY="107.0" prefHeight="32.0" prefWidth="382.0" promptText="search for a doctor, by id or name">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="441.0" layoutY="111.0" text="Filter by Speciality:" />
+            <Label alignment="CENTER" layoutX="59.0" layoutY="71.0" prefHeight="26.0" prefWidth="104.0" text="Search Box">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="59.0" layoutY="165.0" mnemonicParsing="false" onAction="#add_closeDoctorButton" text="Add a New Doctor" />
+            <TitledPane fx:id="addDoctorPane" animated="false" layoutX="72.0" layoutY="586.0" onMouseReleased="#expandPane" prefHeight="353.0" prefWidth="665.0" text="Add a New Doctor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="663.0">
+                     <children>
+                        <VBox fx:id="labelBox" layoutX="76.0" layoutY="51.0" prefHeight="178.0" prefWidth="183.0" spacing="19.0">
+                           <children>
+                              <Label text="Full Name:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="45.0" text="Speciality:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Discount Amount:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="196.0" text="Email Address:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="textBox" layoutX="328.0" layoutY="52.0" prefHeight="184.0" prefWidth="210.0" spacing="22.0">
+                           <children>
+                              <TextField fx:id="doctorName" />
+                              <TextField fx:id="doctorSpeciality" layoutX="10.0" layoutY="36.0" />
+                              <TextField fx:id="discountAmount" />
+                              <TextField fx:id="doctorEmail" layoutX="10.0" layoutY="195.0" promptText="i.e: name@gmail.com" />
+                           </children>
+                        </VBox>
+                        <ButtonBar fx:id="buttonBar" layoutX="218.0" layoutY="252.0" prefHeight="40.0" prefWidth="200.0">
+                           <buttons>
+                              <Button mnemonicParsing="false" onAction="#addNewDoctor" text="Add Doctor" />
+                              <Button mnemonicParsing="false" onAction="#add_closeDoctorButton" style="-fx-background-color: #ff8566;" text="Close" />
+                           </buttons>
+                        </ButtonBar>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <AnchorPane fx:id="editPane" layoutX="1030.0" layoutY="14.0" prefHeight="521.0" prefWidth="508.0">
+               <children>
+                  <VBox layoutX="44.0" layoutY="43.0" prefHeight="338.0" prefWidth="411.0" spacing="5.0">
+                     <children>
+                        <Label style="-fx-text-fill: #0567c3;" text="Presonal Details:" textFill="#0567c3">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox prefHeight="59.0" prefWidth="411.0">
+                           <children>
+                              <Label text="Full Name:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editName" />
+                           </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="52.0" prefWidth="410.0">
+                           <children>
+                              <Label text="Discount ">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editDiscount" prefHeight="25.0" prefWidth="180.0" />
+                           </children>
+                        </VBox>
+                        <VBox fillWidth="false" prefHeight="76.0" prefWidth="180.0">
+                           <children>
+                              <Label text="Speciality">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editSpeciality" prefHeight="25.0" prefWidth="188.0" />
+                           </children>
+                        </VBox>
+                        <Label layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #0567c3;" text="Contact Details:" textFill="#066bcc">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="67.0" prefWidth="423.0" spacing="15.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="190.0">
+                                 <children>
+                                    <Label text="E-Mail Address:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="editEmail" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ButtonBar layoutX="149.0" layoutY="392.0" prefHeight="40.0" prefWidth="306.0">
+                     <buttons>
+                        <Button fx:id="update" mnemonicParsing="false" onAction="#updateDoctor" text="Update" />
+                        <Button mnemonicParsing="false" onAction="#cancelEdit" style="-fx-background-color: #ff8566;" text="Close" />
+                        <Hyperlink fx:id="editDoctorLink" prefHeight="23.0" prefWidth="113.0" text="Edit Dcotor" />
+                     </buttons>
+                  </ButtonBar>
+                  <VBox layoutX="14.0" layoutY="453.0">
+                     <children>
+                        <Label fx:id="supervisedVisitsLabel" text="Supervised Visits: #">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label fx:id="lastVisitDate" text="Last Visit on: #date">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <ComboBox fx:id="specialtyFilter" layoutX="553.0" layoutY="107.0" prefWidth="150.0" />
+            <Button layoutX="776.0" layoutY="107.0" mnemonicParsing="false" onAction="#clearFilter" text="Clear" />
+            <Button layoutX="709.0" layoutY="107.0" mnemonicParsing="false" onAction="#executeFilter" text="Execute" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

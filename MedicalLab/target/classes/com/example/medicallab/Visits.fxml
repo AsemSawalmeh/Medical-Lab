@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="443.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.medicallab.VisitController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="610.0" layoutY="14.0" prefHeight="8.0" prefWidth="58.0" text="Visits" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="vtable" editable="true" layoutX="20.0" layoutY="56.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="267.0" prefWidth="870.0">
+        <columns>
+          <TableColumn fx:id="vidcolumn" prefWidth="56.00000190734863" text="Visit ID" />
+          <TableColumn fx:id="bidcolumn" prefWidth="68.66667938232422" text="Branch ID" />
+            <TableColumn fx:id="pidcolumn" prefWidth="68.66668701171875" text="Patient ID" />
+            <TableColumn fx:id="eidcolumn" prefWidth="77.33338928222656" text="Employee ID" />
+            <TableColumn fx:id="didcolumn" prefWidth="67.3333740234375" text="Doctor ID" />
+            <TableColumn fx:id="datetimecolumn" prefWidth="77.33331298828125" text="Date_Time" />
+            <TableColumn fx:id="processstatus" prefWidth="100.6666259765625" text="Process Status" />
+            <TableColumn fx:id="chargeprice" prefWidth="83.3333740234375" text="Charge Price" />
+            <TableColumn fx:id="paymethod" editable="false" prefWidth="105.3333740234375" text="Payment Method" />
+            <TableColumn fx:id="deleteColumn" editable="false" prefWidth="45.99993896484375" text="Delete" />
+            <TableColumn fx:id="processColumn" editable="false" prefWidth="58.66668701171875" text="Process" />
+            <TableColumn fx:id="receiptColumn" editable="false" prefWidth="58.66668701171875" text="Receipt" />
+        </columns>
+      </TableView>
+      <TitledPane alignment="CENTER" animated="false" layoutX="925.0" layoutY="56.0" prefHeight="337.0" prefWidth="303.0" text="New Visit">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="300.0">
+               <children>
+                  <Button fx:id="addVisitButton" layoutX="117.0" layoutY="271.0" mnemonicParsing="false" onAction="#insertVisitJV" text="Add Visit">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="58.0" layoutY="10.0" text="Patient ID" />
+                  <Label layoutX="58.0" layoutY="92.0" text="Branch ID" />
+                  <Label layoutX="60.0" layoutY="134.0" text="Doctor ID" />
+                  <Label layoutX="42.0" layoutY="52.0" text="Employee ID" />
+                  <TextField fx:id="patientText" layoutX="131.0" layoutY="6.0" />
+                  <TextField fx:id="empText" layoutX="131.0" layoutY="48.0" />
+                  <TextField fx:id="branchText" layoutX="131.0" layoutY="88.0" />
+                  <TextField fx:id="doctorText" layoutX="131.0" layoutY="130.0" />
+                  <Button fx:id="addTestsButton" layoutX="88.0" layoutY="221.0" mnemonicParsing="false" onAction="#openTestsWindow" text="Add Medical Tests">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="18.0" layoutY="178.0" text="Payment Method" />
+                  <RadioButton fx:id="cardRad" layoutX="215.0" layoutY="172.0" mnemonicParsing="false" onAction="#setCard" text="Card">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="payGrp" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="cashRad" layoutX="139.0" layoutY="172.0" mnemonicParsing="false" onAction="#setCash" text="Cash" toggleGroup="$payGrp">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </AnchorPane>
+        </content>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TitledPane>
+   </children>
+</AnchorPane>

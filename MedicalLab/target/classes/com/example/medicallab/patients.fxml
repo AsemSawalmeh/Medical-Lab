@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1100.0" prefWidth="1632.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.medicallab.PatientController">
+   <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="934.0">
+      <Label alignment="CENTER" layoutX="268.0" layoutY="14.0" prefHeight="46.0" prefWidth="189.0" text="Patients">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="17.0" layoutY="220.0" prefHeight="351.0" prefWidth="900.0">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="86.4000244140625" text="Patient ID" />
+            <TableColumn fx:id="nameColumn" prefWidth="151.199951171875" text="Patient Name" />
+            <TableColumn fx:id="genderColumn" prefWidth="98.39996337890625" text="Gender" />
+            <TableColumn fx:id="addressColumn" prefWidth="183.199951171875" text="Address" />
+            <TableColumn fx:id="birthDateColumn" prefWidth="139.20001220703125" text="Date of Birth" />
+            <TableColumn fx:id="contactColumn" prefWidth="107.199951171875" sortable="false" text="Contact Info" />
+            <TableColumn fx:id="manipulateColumn" prefWidth="132.0001220703125" sortable="false" text="Edit/Remove" />
+         </columns>
+      </TableView>
+      <TextField fx:id="searchBar" layoutX="52.0" layoutY="107.0" prefHeight="32.0" prefWidth="382.0" promptText="search for a patient, by id or name">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </TextField>
+      <ChoiceBox fx:id="filterChoices" layoutX="522.0" layoutY="107.0" prefWidth="150.0" />
+      <Label layoutX="457.0" layoutY="111.0" text="Filter by:" />
+      <DatePicker fx:id="filterDate" layoutX="505.0" layoutY="165.0" onAction="#filterBy" promptText="MM/DD/YYYY" visible="false" />
+      <Label alignment="CENTER" layoutX="59.0" layoutY="71.0" prefHeight="26.0" prefWidth="104.0" text="Search Box">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="59.0" layoutY="165.0" mnemonicParsing="false" onAction="#add_closePatientButton" text="Add a New Patient" />
+      <TitledPane fx:id="addPatientPane" animated="false" layoutX="72.0" layoutY="586.0" onMouseReleased="#expandPane" prefHeight="468.0" prefWidth="725.0" text="Add a New Patient">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="443.0" prefWidth="717.0">
+               <children>
+                  <VBox fx:id="labelBox" layoutX="76.0" layoutY="51.0" prefHeight="205.0" prefWidth="183.0" spacing="19.0">
+                     <children>
+                        <Label text="Full Name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="28.0" text="Gender:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="45.0" text="Address:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="63.0" text="Birth Date:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets top="12.0" />
+                           </padding>
+                        </Label>
+                        <Label text="Phone Number:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="196.0" text="Email Address:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Insurance:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="textBox" layoutX="328.0" layoutY="52.0" prefHeight="252.0" prefWidth="210.0" spacing="22.0">
+                     <children>
+                        <TextField fx:id="patientName" />
+                        <HBox prefHeight="20.0" prefWidth="190.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="male" mnemonicParsing="false" text="Male">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="genderGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="female" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Female" toggleGroup="$genderGroup" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="patientAddress" layoutX="10.0" layoutY="36.0" />
+                        <HBox>
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <Label text="YEAR" />
+                                    <ComboBox fx:id="yearPicker" prefWidth="150.0" />
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <Label text="MONTH" />
+                                    <ComboBox fx:id="monthPicker" prefWidth="150.0" />
+                                 </children>
+                              </VBox>
+                              <VBox>
+                                 <children>
+                                    <Label text="DAY" />
+                                    <ComboBox fx:id="dayPicker" prefWidth="150.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="phoneNumber" />
+                        <TextField fx:id="patientEmail" layoutX="10.0" layoutY="195.0" promptText="i.e: name@gmail.com" />
+                        <CheckBox fx:id="insuranceBox" mnemonicParsing="false" text="Has Insurance" />
+                     </children>
+                  </VBox>
+                  <ButtonBar fx:id="buttonBar" layoutX="215.0" layoutY="374.0" prefHeight="40.0" prefWidth="200.0">
+                     <buttons>
+                        <Button mnemonicParsing="false" onAction="#addNewPatient" text="Add Paitent" />
+                        <Button mnemonicParsing="false" onAction="#add_closePatientButton" style="-fx-background-color: #ff8566;" text="Close" />
+                     </buttons>
+                  </ButtonBar>
+                  <Button layoutX="538.0" layoutY="249.0" mnemonicParsing="false" onAction="#addAnotherPhone" prefHeight="25.0" prefWidth="96.0" text="Add Phone" AnchorPane.leftAnchor="538.0" />
+                  <Label fx:id="invalidDateLabel" layoutX="548.0" layoutY="212.0" textFill="#d93232" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <AnchorPane fx:id="editPane" layoutX="1049.0" layoutY="10.0" prefHeight="558.0" prefWidth="508.0">
+         <children>
+            <VBox layoutX="44.0" layoutY="43.0" prefHeight="392.0" prefWidth="411.0" spacing="5.0">
+               <children>
+                  <Label style="-fx-text-fill: #0567c3;" text="Presonal Details:" textFill="#0567c3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="62.0" prefWidth="411.0">
+                     <children>
+                        <Label text="Full Name:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="editName" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="52.0" prefWidth="410.0" spacing="5.0">
+                     <children>
+                        <Label text="Gender:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <RadioButton fx:id="editMale" mnemonicParsing="false" text="Male">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="editGenderGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="editFemale" mnemonicParsing="false" text="Female" toggleGroup="$editGenderGroup" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="52.0" prefWidth="410.0">
+                     <children>
+                        <Label text="Birth Date:">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="editDate" promptText="MM/DD/YYYY" />
+                     </children>
+                  </VBox>
+                  <HBox spacing="30.0">
+                     <children>
+                        <VBox prefHeight="76.0" prefWidth="211.0">
+                           <children>
+                              <Label text="Current Address:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editAddress" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="78.0" prefWidth="206.0">
+                           <children>
+                              <Label text="Insurance Type:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editInsurance" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label layoutX="10.0" layoutY="10.0" style="-fx-text-fill: #0567c3;" text="Contact Details:" textFill="#066bcc">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="67.0" prefWidth="423.0" spacing="15.0">
+                     <children>
+                        <VBox prefHeight="100.0" prefWidth="190.0">
+                           <children>
+                              <Label text="E-Mail Address:">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="editEmail" />
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#openEditPhonesPage" prefHeight="28.0" prefWidth="160.0" text="Phone Numbers">
+                           <HBox.margin>
+                              <Insets top="18.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <ButtonBar layoutX="148.0" layoutY="429.0" prefHeight="40.0" prefWidth="306.0">
+               <buttons>
+                  <Button fx:id="update" mnemonicParsing="false" onAction="#updateButton" text="Update" />
+                  <Button mnemonicParsing="false" onAction="#cancelEdit" style="-fx-background-color: #ff8566;" text="Close" />
+                  <Hyperlink fx:id="editPatientLink" onAction="#editThisPatient" prefHeight="23.0" prefWidth="113.0" text="Edit Patient" />
+               </buttons>
+            </ButtonBar>
+            <VBox layoutX="19.0" layoutY="456.0">
+               <children>
+                  <Label fx:id="numOfVisitsLabel" text="Visits Made: #">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Label fx:id="lastVisit" text="Last Visit on: #date">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink prefHeight="12.0" prefWidth="69.0" text="Show Visit">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
+                  <Label fx:id="mostVisitedBranch" text="Most Visited Branch: #name">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="filterField" layoutX="523.0" layoutY="165.0" onAction="#filterBy" visible="false" />
+   </AnchorPane>
+</ScrollPane>

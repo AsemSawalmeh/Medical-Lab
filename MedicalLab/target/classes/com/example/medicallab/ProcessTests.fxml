@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.medicallab.ProcessController">
+   <children>
+      <TableView fx:id="processTable" layoutX="186.0" layoutY="100.0" prefHeight="200.0" prefWidth="227.0">
+        <columns>
+          <TableColumn fx:id="vidColumn" prefWidth="75.0" text="VID" />
+          <TableColumn fx:id="tsnColumn" prefWidth="75.0" text="TSN" />
+            <TableColumn fx:id="resultArea" prefWidth="75.0" text="Result" />
+        </columns>
+      </TableView>
+      <Button fx:id="processButton" layoutX="274.0" layoutY="314.0" mnemonicParsing="false" onAction="#processVisit" text="Process" />
+      <Label layoutX="164.0" layoutY="70.0" text="Make Sure to Press Enter when entering each Result" />
+   </children>
+</AnchorPane>
