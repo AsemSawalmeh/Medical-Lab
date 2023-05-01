@@ -1,0 +1,10 @@
+To run this program there are some steps you need to take:
+
+First install the MySQL Workbench on your pc and create a Database with the MedicalLab.SQL code attatched in the Medical lab file.
+
+Download the java code and open it using IntelliJ (preferrably) and install the (itextpdf.maven) and the (MySQL Connector) (look them up on the web).
+
+Go to the main class and scroll to the bottom and adjust the database name and password to the name and password of the one you created.
+
+Make sure the MySQL server is up and running with the sql code correctly , then the program should run fine.
+
