@@ -1,0 +1,12 @@
+
+A fully functional program for a Medical Testing Lab , with fully functional database to store patients, employees, test results and so on....
+
+This program is built simply by creating a database in MySQL (MedicalLab.SQL),connecting the SQL database to Java using the IntelliJ Library(mysql-connector-java-5.1.47).
+Then an interface was made for every table in the database with delete, add , and edit column for most of the tables.
+
+The main functionallity of the program is to store patient's visits to the medical lab and save the tests they took for them to get the result later,
+there is also a primitive pdf printing functionallity which prints out full details of a patient's visit(using itextpdf.maven).
+
+The program also stores employees' and Doctors' information for them to be referenced(if eligible) in a patient's receipt.
+
+Finally the program can do analysis on some of the data like average results for a certain test , average salary for employees in a certain medical branch etc......
